@@ -1,0 +1,28 @@
+.bk { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: clamp(1.4rem, 3vw, 2.2rem); }
+.bk__steps { display: flex; gap: 1.4rem; list-style: none; margin: 0 0 1.6rem; padding: 0 0 1.1rem; border-bottom: 1px solid var(--line); font-size: .84rem; color: var(--muted); flex-wrap: wrap; }
+.bk__steps li { display: flex; align-items: center; gap: .5rem; }
+.bk__steps li.is-now { color: var(--ink); font-weight: 600; }
+.bk__num { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 999px; background: var(--sand); color: var(--muted); font-size: .74rem; font-weight: 600; }
+.is-now .bk__num { background: var(--red); color: #fff; }
+.is-done .bk__num { background: var(--ink); color: #fff; }
+.bk__ask { font-family: var(--display); font-size: 1.24rem; font-weight: 600; margin: 0 0 1.1rem; }
+.bk__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: .8rem; }
+.bk__disc { position: relative; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--ink); cursor: pointer; aspect-ratio: 4/3; }
+.bk__disc img { width: 100%; height: 100%; object-fit: cover; opacity: .62; transition: transform .3s ease, opacity .2s ease; }
+.bk__disc:hover img { transform: scale(1.06); opacity: .78; }
+.bk__disc span { position: absolute; inset: auto 0 0 0; padding: .7rem .8rem; color: #fff; font: 600 .9rem/1.2 var(--sans); text-align: left; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.bk__slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: .7rem; }
+.bk__slot { text-align: left; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 11px; background: var(--paper); cursor: pointer; display: grid; gap: .12rem; transition: border-color .15s ease, box-shadow .15s ease; }
+.bk__slot:hover { border-color: var(--ink); }
+.bk__slot.is-on { border-color: var(--red); box-shadow: 0 0 0 2px rgba(214,63,44,.16); }
+.bk__slot strong { font: 600 .96rem var(--sans); }
+.bk__slot span { font-size: .88rem; color: var(--ink-2); }
+.bk__slot em { font-style: normal; font-size: .78rem; color: var(--muted); }
+.bk__recap { background: var(--sand); border-radius: 10px; padding: .75rem .9rem; font-size: .9rem; font-weight: 600; margin-bottom: 1.2rem; }
+.bk__nav { display: flex; gap: .7rem; justify-content: flex-end; margin-top: 1.4rem; flex-wrap: wrap; }
+.bk__note { font-size: .86rem; color: var(--muted); margin: 1rem 0 0; }
+.bk__note--tt { border-left: 2px solid var(--line); padding-left: .8rem; font-style: italic; }
+.bk__demo { font-size: .78rem; color: var(--muted); margin: 1rem 0 0; }
+.bk--done { text-align: center; }
+.bk__tick { width: 52px; height: 52px; margin: 0 auto 1rem; border-radius: 999px; display: grid; place-items: center; background: var(--red); color: #fff; font-size: 1.5rem; }
+.bk__doneline { font-size: 1.05rem; }

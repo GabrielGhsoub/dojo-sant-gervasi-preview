@@ -1,0 +1,37 @@
+.hd { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.86); backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); }
+.hd__in { display: flex; align-items: center; gap: 1.6rem; padding: .8rem 0; }
+.hd__brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.hd__brand img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
+.hd__brand strong { display: block; font-family: var(--display); font-size: .98rem; letter-spacing: -.01em; }
+.hd__brand em { display: block; font-style: normal; font-size: .74rem; color: var(--muted); }
+.hd__nav { display: flex; gap: 1.4rem; margin-left: auto; font-size: .92rem; }
+.hd__nav a { text-decoration: none; color: var(--ink-2); padding: .3rem 0; border-bottom: 2px solid transparent; }
+.hd__nav a:hover { color: var(--ink); }
+.hd__nav a.active { color: var(--ink); border-bottom-color: var(--red); font-weight: 600; }
+.hd__cta { padding: .7rem 1.1rem; font-size: .88rem; }
+@media (max-width: 860px) { .hd__nav { display: none; } .hd__cta { margin-left: auto; } }
+
+.ft { background: var(--ink); color: #fff; padding: 3rem 0; margin-top: 0; }
+.ft__in { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.ft__in strong { font-family: var(--display); font-size: 1.05rem; }
+.ft__in p { color: rgba(255,255,255,.72); font-size: .92rem; margin: .6rem 0 0; }
+.ft__in a { color: rgba(255,255,255,.92); }
+.ft__demo { font-size: .82rem !important; color: rgba(255,255,255,.5) !important; }
+@media (max-width: 720px) { .ft__in { grid-template-columns: 1fr; } }
+
+/* On a phone the brand name wrapped to two lines and crowded the CTA. The dojo's
+   audience arrives on a phone, so the header has to survive 375px: drop the
+   tagline, cap the name to one line, shrink the button. */
+@media (max-width: 560px) {
+  .hd__in { gap: .8rem; }
+  .hd__brand em { display: none; }
+  .hd__brand strong { font-size: .92rem; white-space: nowrap; }
+  .hd__brand img { width: 34px; height: 34px; }
+  .hd__cta { padding: .62rem .9rem; font-size: .82rem; white-space: nowrap; }
+}
+.hd__cta-short { display: none; }
+@media (max-width: 560px) {
+  .hd__brand { min-width: 0; }
+  .hd__cta-long { display: none; }
+  .hd__cta-short { display: inline; }
+}

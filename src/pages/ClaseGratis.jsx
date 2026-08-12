@@ -1,0 +1,33 @@
+import { motion } from 'framer-motion'
+import Booking from '../components/Booking.jsx'
+import { brand } from '../data/site.js'
+import './clase.css'
+
+export default function ClaseGratis() {
+  return (
+    <section className="cg">
+      <div className="wrap cg__in">
+        <motion.div className="cg__copy" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }}>
+          <p className="eyebrow">Clase de prueba</p>
+          <h1>Prueba tu primera clase gratis</h1>
+          <p className="lede">
+            Elige la actividad y el día que te vaya bien. Nosotros lo confirmamos contigo
+            antes de que vengas, y si ese día cambia algo te avisamos.
+          </p>
+          <ul className="cg__points">
+            <li><strong>No se paga nada</strong> para reservarla.</li>
+            <li><strong>Nada queda confirmado solo</strong>: lo revisa el dojo.</li>
+            <li>Ven diez minutos antes con ropa cómoda. El material lo ponemos nosotros.</li>
+          </ul>
+          <p className="cg__alt">
+            Si lo prefieres, llámanos al <a href={brand.phoneHref}>{brand.phone}</a> o
+            escribe a <a href={`mailto:${brand.email}`}>{brand.email}</a>.
+          </p>
+        </motion.div>
+        <motion.div className="cg__widget" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .55, delay: .08 }}>
+          <Booking />
+        </motion.div>
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,84 @@
+/* Palette taken from their own site: #d63f2c is the red already in their CSS,
+   #161619 and #313131 are their darks. Nothing invented, just given room. */
+:root {
+  --ink: #161619;
+  --ink-2: #313131;
+  --red: #d63f2c;
+  --red-dark: #b3301f;
+  --paper: #ffffff;
+  --sand: #f6f4f2;
+  --line: #e6e2de;
+  --muted: #6f6a66;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(22, 22, 25, .04), 0 12px 32px rgba(22, 22, 25, .08);
+  --shadow-lg: 0 2px 4px rgba(22, 22, 25, .05), 0 24px 60px rgba(22, 22, 25, .14);
+  --sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --display: 'Space Grotesk Variable', var(--sans);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+h1, h2, h3 { font-family: var(--display); letter-spacing: -.02em; line-height: 1.08; margin: 0; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 700; }
+h3 { font-size: 1.12rem; font-weight: 600; letter-spacing: -.01em; }
+p { margin: 0 0 1rem; }
+
+.wrap { width: min(1160px, 92vw); margin: 0 auto; }
+.eyebrow {
+  font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--red); margin: 0 0 .7rem;
+}
+.lede { font-size: 1.12rem; color: var(--muted); max-width: 62ch; }
+.section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+.section--sand { background: var(--sand); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem; cursor: pointer;
+  font: 600 .95rem/1 var(--sans); letter-spacing: .01em;
+  padding: 1rem 1.5rem; border-radius: 999px; border: 1px solid transparent;
+  text-decoration: none; transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--red); color: #fff; box-shadow: 0 8px 22px rgba(214, 63, 44, .28); }
+.btn--primary:hover { background: var(--red-dark); }
+.btn--ghost { border-color: var(--line); background: var(--paper); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--ink); }
+.btn--onDark { background: rgba(255,255,255,.1); color: #fff; border-color: rgba(255,255,255,.28); }
+.btn--onDark:hover { background: rgba(255,255,255,.18); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; box-shadow: none; }
+
+.card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+.field { display: block; margin-bottom: 1rem; }
+.field span { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .4rem; color: var(--ink-2); }
+.field input {
+  width: 100%; padding: .85rem 1rem; font: 400 1rem var(--sans); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px; background: var(--paper);
+}
+.field input:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: transparent; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
+}
