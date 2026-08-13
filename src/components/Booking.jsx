@@ -6,7 +6,7 @@
    This joins the two: pick a discipline, see only the real sessions that teach it,
    pick one, done. Nothing confirms by itself; the request lands with the dojo. */
 import { useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { allSlots, disciplines, timetableNote } from '../data/site.js'
 import './booking.css'
 
@@ -34,7 +34,7 @@ export default function Booking() {
   if (sent) {
     const d = disciplines.find((x) => x.key === discipline)
     return (
-      <motion.div className="bk bk--done" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+      <motion.div className="bk bk--done" initial={false} animate={{ opacity: 1, y: 0 }}>
         <div className="bk__tick" aria-hidden="true">✓</div>
         <h3>Solicitud enviada</h3>
         <p className="bk__doneline">
@@ -60,9 +60,8 @@ export default function Booking() {
         ))}
       </ol>
 
-      <AnimatePresence mode="wait">
         {step === 0 && (
-          <motion.div key="s0" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+          <motion.div key="s0" initial={false} animate={{ opacity: 1, y: 0 }}>
             <p className="bk__ask">¿Qué quieres probar?</p>
             <div className="bk__grid">
               {disciplines.map((d) => (
@@ -76,7 +75,7 @@ export default function Booking() {
         )}
 
         {step === 1 && (
-          <motion.div key="s1" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+          <motion.div key="s1" initial={false} animate={{ opacity: 1, y: 0 }}>
             <p className="bk__ask">
               {slots.length ? 'Elige el día que te va bien' : 'Esta actividad se organiza aparte'}
             </p>
@@ -118,7 +117,7 @@ export default function Booking() {
         {step === 2 && (
           <motion.form
             key="s2"
-            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+            initial={false} animate={{ opacity: 1, y: 0 }}
             onSubmit={(e) => { e.preventDefault(); setSent(true) }}
           >
             <p className="bk__ask">¿A quién avisamos?</p>
@@ -146,7 +145,6 @@ export default function Booking() {
             </p>
           </motion.form>
         )}
-      </AnimatePresence>
     </div>
   )
 }
