@@ -8,9 +8,11 @@
 .bk__ask { font-family: var(--display); font-size: 1.24rem; font-weight: 600; margin: 0 0 1.1rem; }
 .bk__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: .8rem; }
 .bk__disc { position: relative; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--ink); cursor: pointer; aspect-ratio: 4/3; }
-.bk__disc img { width: 100%; height: 100%; object-fit: cover; opacity: .62; transition: transform .3s ease, opacity .2s ease; }
-.bk__disc:hover img { transform: scale(1.06); opacity: .78; }
-.bk__disc span { position: absolute; inset: auto 0 0 0; padding: .7rem .8rem; color: #fff; font: 600 .9rem/1.2 var(--sans); text-align: left; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.bk__disc img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.bk__disc:hover img { transform: scale(1.06); }
+.bk__disc span { position: absolute; inset: auto 0 0 0; padding: 2rem .8rem .7rem; color: #fff; font: 600 .9rem/1.2 var(--sans); text-align: left;
+  overflow-wrap: anywhere; hyphens: auto;
+  background: linear-gradient(180deg, rgba(22,22,25,0) 0%, rgba(22,22,25,.74) 44%, rgba(22,22,25,.94) 100%); }
 .bk__slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: .7rem; }
 .bk__slot { text-align: left; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 11px; background: var(--paper); cursor: pointer; display: grid; gap: .12rem; transition: border-color .15s ease, box-shadow .15s ease; }
 .bk__slot:hover { border-color: var(--ink); }
@@ -26,3 +28,7 @@
 .bk--done { text-align: center; }
 .bk__tick { width: 52px; height: 52px; margin: 0 auto 1rem; border-radius: 999px; display: grid; place-items: center; background: var(--red); color: #fff; font-size: 1.5rem; }
 .bk__doneline { font-size: 1.05rem; }
+.bk__ask { line-height: 1.25; }
+.bk__note a { color: var(--ink); font-weight: 600; }
+.bk__hint { font-size: .86rem; color: var(--muted); margin: 1.2rem 0 0; text-align: right; }
+.bk__nav--done { justify-content: center; margin-top: 1.6rem; }

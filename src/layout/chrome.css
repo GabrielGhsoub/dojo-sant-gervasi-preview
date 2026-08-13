@@ -5,17 +5,27 @@
 .hd__brand strong { display: block; font-family: var(--display); font-size: .98rem; letter-spacing: -.01em; }
 .hd__brand em { display: block; font-style: normal; font-size: .74rem; color: var(--muted); }
 .hd__nav { display: flex; gap: 1.4rem; margin-left: auto; font-size: .92rem; }
-.hd__nav a { text-decoration: none; color: var(--ink-2); padding: .3rem 0; border-bottom: 2px solid transparent; }
+.hd__nav a { text-decoration: none; color: var(--ink-2); padding: .7rem 0; border-bottom: 2px solid transparent; }
 .hd__nav a:hover { color: var(--ink); }
 .hd__nav a.active { color: var(--ink); border-bottom-color: var(--red); font-weight: 600; }
-.hd__cta { padding: .7rem 1.1rem; font-size: .88rem; }
-@media (max-width: 860px) { .hd__nav { display: none; } .hd__cta { margin-left: auto; } }
+.hd__cta { padding: .7rem 1.1rem; font-size: .88rem; min-height: 44px; }
+/* The nav used to be hidden wholesale below 861px, which took the dojo's phone
+   number off every tablet and landscape phone. Keep the tel: link down to the
+   width where it still fits: below 561px the brand name, a phone affordance and
+   the booking button cannot share 345px without colliding, so there the number
+   stays in the footer and on /clase-gratis and the button keeps the space. */
+@media (min-width: 561px) and (max-width: 860px) {
+  .hd__nav { margin-left: auto; gap: .8rem; }
+  .hd__nav a:not([href^="tel:"]) { display: none; }
+  .hd__cta { margin-left: .7rem; }
+}
+@media (max-width: 560px) { .hd__nav { display: none; } .hd__cta { margin-left: auto; } }
 
 .ft { background: var(--ink); color: #fff; padding: 3rem 0; margin-top: 0; }
 .ft__in { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
 .ft__in strong { font-family: var(--display); font-size: 1.05rem; }
 .ft__in p { color: rgba(255,255,255,.72); font-size: .92rem; margin: .6rem 0 0; }
-.ft__in a { color: rgba(255,255,255,.92); }
+.ft__in a { color: rgba(255,255,255,.92); display: inline-block; padding: .45rem 0; }
 .ft__demo { font-size: .82rem !important; color: rgba(255,255,255,.5) !important; }
 @media (max-width: 720px) { .ft__in { grid-template-columns: 1fr; } }
 

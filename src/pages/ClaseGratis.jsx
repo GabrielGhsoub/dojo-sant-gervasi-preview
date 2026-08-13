@@ -17,7 +17,10 @@ export default function ClaseGratis() {
           <ul className="cg__points">
             <li><strong>No se paga nada</strong> para reservarla.</li>
             <li><strong>Nada queda confirmado solo</strong>: lo revisa el dojo.</li>
-            <li>Ven diez minutos antes con ropa cómoda. El material lo ponemos nosotros.</li>
+            {/* Was "el material lo ponemos nosotros", which their own /tarifas/
+                denies: "cada actividad requiere la compra de un equipo o material
+                específico". Replaced with something they do publish. */}
+            <li>La <strong>matrícula de inscripción es gratuita</strong>.</li>
           </ul>
           <p className="cg__alt">
             Si lo prefieres, llámanos al <a href={brand.phoneHref}>{brand.phone}</a> o

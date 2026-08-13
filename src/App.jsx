@@ -1,20 +1,41 @@
-import { NavLink, Route, Routes, Link } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import { NavLink, Route, Routes, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import ClaseGratis from './pages/ClaseGratis.jsx'
 import { brand } from './data/site.js'
 import './layout/chrome.css'
 
 function Chrome({ children }) {
+  /* Not <a href="#main">. Under HashRouter the fragment IS the route, so that
+     link navigates to /main, misses every route, and the catch-all swaps the
+     page for Home. One Tab and one Enter used to wipe the booking form. */
+  const main = useRef(null)
+
+  /* React Router keeps the scroll offset across routes, and the home page is far
+     taller than /clase-gratis. Tapping a CTA from halfway down used to land the
+     visitor at the bottom of the booking page, looking at the footer.
+     Must be 'instant': html has scroll-behavior:smooth, so a plain scrollTo
+     animates from 4,000px while React swaps in a shorter page underneath, and
+     the run gets clamped part way and stops at ~460px. */
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }) }, [pathname])
+
   return (
     <>
-      <a className="visually-hidden" href="#main">Saltar al contenido</a>
+      <button
+        type="button"
+        className="skip"
+        onClick={() => { main.current?.focus(); main.current?.scrollIntoView() }}
+      >
+        Saltar al contenido
+      </button>
       <header className="hd">
         <div className="wrap hd__in">
           <Link to="/" className="hd__brand">
             <img src="img/escudo-def.jpg" alt="" width="40" height="40" />
             <span>
               <strong>Dojo Sant Gervasi</strong>
-              <em>Barcelona, desde {brand.since}</em>
+              <em>Barcelona, {brand.experience}</em>
             </span>
           </Link>
           <nav className="hd__nav">
@@ -29,7 +50,7 @@ function Chrome({ children }) {
         </div>
       </header>
 
-      <main id="main">{children}</main>
+      <main id="main" ref={main} tabIndex={-1}>{children}</main>
 
       <footer className="ft">
         <div className="wrap ft__in">

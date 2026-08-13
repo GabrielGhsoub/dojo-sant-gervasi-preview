@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
   font-family: var(--sans);
@@ -39,7 +39,8 @@ p { margin: 0 0 1rem; }
 .wrap { width: min(1160px, 92vw); margin: 0 auto; }
 .eyebrow {
   font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--red); margin: 0 0 .7rem;
+  /* --red is 4.16:1 on --sand at this size and weight. --red-dark is 5.7:1. */
+  color: var(--red-dark); margin: 0 0 .7rem;
 }
 .lede { font-size: 1.12rem; color: var(--muted); max-width: 62ch; }
 .section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
@@ -82,3 +83,19 @@ p { margin: 0 0 1rem; }
   *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto; }
 }
+
+.field--bad input { border-color: var(--red); background: #fffaf9; }
+.field .field__err { display: block; margin: .4rem 0 0; font-size: .8rem; font-weight: 600; color: var(--red); }
+
+/* The skip link used to be a 1x1 clipped element with no focus style, so the
+   first Tab on every page sent the focus ring off screen. */
+.skip {
+  position: absolute; left: .6rem; top: -100px; z-index: 60;
+  padding: .7rem 1.1rem; border: 0; border-radius: 0 0 10px 10px; cursor: pointer;
+  background: var(--red); color: #fff; font: 600 .9rem var(--sans);
+  transition: top .16s ease;
+}
+.skip:focus { top: 0; }
+main:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 4px; }
+.hero :focus-visible, .cta :focus-visible, .ft :focus-visible { outline-color: #fff; }

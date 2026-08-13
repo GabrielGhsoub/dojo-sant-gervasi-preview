@@ -6,7 +6,10 @@
 export const brand = {
   name: 'Dojo Sant Gervasi',
   claim: 'Artes marciales y defensa personal en Barcelona',
-  since: 1997,
+  /* Their words, not ours: "Llevamos más de 40 años impartiendo clases"
+     (/nuestros-valores/) and "+ 40 años de experiencia" (/equipo/). They publish
+     no founding year anywhere, so we do not print one. */
+  experience: 'más de 40 años',
   address: 'Carrer de Buscarons, 18',
   city: '08022 Sant Gervasi, Barcelona',
   phone: '93 211 22 66',
@@ -87,25 +90,49 @@ export const tarifas = [
   { label: 'Ac. física viernes (alumnos y familiares)', price: '20€', unit: '/mes' },
   { label: 'Ac. física viernes (clase única)', price: '35€', unit: '/mes' },
   { label: 'Clase suelta', price: '15€', unit: '/sesión' },
+  { label: 'Entrenamientos personales', price: 'A convenir', unit: '' },
+  { label: 'Matrícula de inscripción', price: 'Gratis', unit: '' },
+  { label: 'Clase de prueba', price: 'Gratis', unit: '' },
 ];
 
-/* The discipline checklist from their own /contacto/ free-class form, with the
-   typo corrected. */
+/* The two Avisos at the foot of /tarifas/, verbatim in substance. They are
+   mandatory costs, so a price panel that hides them is not "claro". */
+export const avisos = [
+  'Cada actividad requiere la compra de un equipo o material específico.',
+  'Para la práctica en el Dojo es obligatorio el pago anual del seguro deportivo.',
+];
+
+/* The discipline checklist from their own /contacto/ free-class form, with three
+   deliberate changes: the "Acondiciomamiento" typo corrected, Muay Thai added
+   (it is on their timetable and in their nav but missing from the form), and
+   their three children's rows merged into one tile, named with their own nav
+   wording "Clases de Judo, Karate y BJJ para niños". */
 export const disciplines = [
   { key: 'judo', name: 'Judo', img: 'karate3-2-1.jpg' },
   { key: 'karate', name: 'Karate', img: 'KARATE.jpg' },
   { key: 'kickboxing', name: 'Kickboxing', img: 'kick2-2.jpg' },
   { key: 'kravmaga', name: 'Krav Maga', img: 'dojo-sant-gervasi-krav-maga.jpg' },
   { key: 'bjj', name: 'Brazilian Jiu Jitsu', img: 'Dojo-Sant-Gervasi-brasilian-jujitsu.jpg' },
-  { key: 'dpf', name: 'Defensa personal femenina', img: 'dojo-sant-gervasi-defensa-personal-femenina.png' },
-  { key: 'acond', name: 'Acondicionamiento físico', img: 'dojo-sant-gervasi-acondicionamiento-fisico.png' },
+  { key: 'dpf', name: 'Defensa personal femenina', img: 'dojo-sant-gervasi-defensa-personal-femenina.jpg' },
+  { key: 'acond', name: 'Acondicionamiento físico', img: 'dojo-sant-gervasi-acondicionamiento-fisico.jpg' },
   { key: 'mma', name: 'MMA', img: 'MMA.jpg' },
   { key: 'muaythai', name: 'Muay Thai', img: 'two-boxers-fight-with-the-martial-arts-of-muay-tha-2023-11-27-04-56-34-utc.jpg' },
-  { key: 'infantil', name: 'Judo y karate para niños', img: 'girl-in-kimono-practicing-karate-2023-11-27-05-04-38-utc.jpg' },
+  { key: 'infantil', name: 'Judo, karate y BJJ para niños', img: 'girl-in-kimono-practicing-karate-2023-11-27-05-04-38-utc.jpg' },
 ];
 
-/* Map a timetable cell to a discipline key so picking a discipline filters the
-   real timetable rather than a made-up one. */
+/* Map a timetable cell to the discipline keys it belongs under, so picking a
+   discipline filters the real timetable rather than a made-up one.
+   Almost every cell belongs to exactly one. The exception is the kids' BJJ
+   session: their own /contacto/ checklist calls the children's option "judo y
+   karate para niños", so a parent looking for BJJ for an 8 year old would pick
+   Brazilian Jiu Jitsu and see only the adult slots. It belongs under both. */
+export function disciplinesOf(cell) {
+  const c = cell.toLowerCase();
+  if (c.includes('bjj') && c.includes('8 a 15')) return ['infantil', 'bjj'];
+  const one = disciplineOf(cell);
+  return one ? [one] : [];
+}
+
 export function disciplineOf(cell) {
   const c = cell.toLowerCase();
   if (c.includes('judo') && (c.includes('alevín') || c.includes('alevin') || c.includes('juvenil'))) return 'infantil';
@@ -133,7 +160,7 @@ export function allSlots() {
           dayIndex,
           time: row.time,
           cell,
-          discipline: disciplineOf(cell),
+          disciplines: disciplinesOf(cell),
         });
       });
     });
