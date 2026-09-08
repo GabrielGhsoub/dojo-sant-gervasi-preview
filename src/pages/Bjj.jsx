@@ -46,8 +46,9 @@ const kidsBenefits = [
   'Compañerismo', 'Respeto', 'Aprendizaje técnico',
 ]
 
-/* The three fee rows that a BJJ alumno actually mira. Their /tarifas/ table is
-   por días de entrenamiento, no por disciplina, así que no ponemos precio al BJJ. */
+/* The four fee rows a BJJ visitor actually looks at. Their /tarifas/ table is
+   priced by training days per week, not by discipline, so this page puts no price
+   on BJJ itself. */
 const feeKeys = ['1 día a la semana', '2 a 3 días a la semana', '2ª actividad', 'Clase de prueba']
 
 export default function Bjj() {
@@ -83,8 +84,9 @@ export default function Bjj() {
             Brazilian Jiu Jitsu<br />en Sant Gervasi
           </motion.h1>
           <motion.p className="bhero__lede" variants={anim} initial="hidden" animate="show" custom={2}>
-            Seis sesiones cada semana, open mat incluido, con grupo propio para los de 8 a 15
-            años. Puedes empezar de cero un martes y seguir aquí dentro de diez años.
+            Seis sesiones de BJJ cada semana entre adultos e infantil, open mat incluido, y
+            un grupo propio para los de 8 a 15 años. Puedes empezar de cero un martes y
+            seguir aquí dentro de diez años.
           </motion.p>
           <motion.div className="bhero__cta" variants={anim} initial="hidden" animate="show" custom={3}>
             <Link to="/clase-gratis" className="btn btn--primary">Reservar clase de prueba</Link>
@@ -130,7 +132,7 @@ export default function Bjj() {
           <h2>Quieres entrenar BJJ en Sant Gervasi. Esto es lo que encuentras</h2>
           <div className="bwhy">
             {[
-              ['Un profesor de BJJ', <>Steve Luzardo, cinturón negro, con más de quince años entrenando y enseñando Brazilian Jiu Jitsu. Profesor titulado de la filial de Cícero Costha y alumno directo de Javier Feliubadaló. No es un profesor de otra cosa que además da BJJ.</>],
+              ['Un profesor de BJJ', <>Steve Luzardo, cinturón negro, con más de quince años entrenando y enseñando Brazilian Jiu Jitsu. Profesor titulado de la filial de Cícero Costha y alumno directo de Javier Feliubadaló.</>],
               ['Seis sesiones a la semana', <>Martes y jueves {hours('19:30 a 20:30')}, viernes {hours('18:30 a 19:30')}, open mat los viernes {hours('16:30 a 17:30')} y el grupo de 8 a 15 años lunes y miércoles.</>],
               ['Un grupo infantil de verdad', <>De 8 a 15 años, con su horario y su clase. No es un hueco dentro del entrenamiento de los adultos.</>],
               ['Y alrededor, una escuela entera', <>Judo, karate, kickboxing, MMA, Muay Thai y Krav Maga en el mismo tatami de Carrer de Buscarons. El BJJ está completo por sí solo; tener el resto al lado es un extra, no un parche.</>],
@@ -161,12 +163,12 @@ export default function Bjj() {
               <h3>Adultos, a partir de 15 años</h3>
               <p>
                 Martes y jueves por la tarde, viernes antes de cenar y open mat para
-                practicar libre. Gente que compite y gente que solo quiere entrenar bien,
-                en el mismo grupo.
+                practicar libre. Quien empieza de cero y quien lleva años entrenan en el
+                mismo grupo, y Steve adapta el trabajo al nivel de cada uno.
               </p>
             </article>
             <article className="bwho__item">
-              <img src="img/bjj-grupo-1.jpg" alt="Clase de BJJ con el profesor explicando una técnica" loading="lazy" width="1030" height="578" />
+              <img src="img/bjj-grupo-1.jpg" alt="Grupo de BJJ entrenando por parejas en el tatami del Dojo Sant Gervasi" loading="lazy" width="1030" height="578" />
               <h3>Niños y jóvenes, de 8 a 15 años</h3>
               <p>
                 Lunes y miércoles, con su propio grupo. Aquí abajo tienes el programa
@@ -208,14 +210,15 @@ export default function Bjj() {
             </ul>
             <p className="bkids__note">
               Es artes marciales, así que aprenden a defenderse. Pero para nosotros el eje
-              es otro: educación, deporte, valores y confianza.
+              es otro: educación, deporte, valores y confianza. Somos una escuela de valores,
+              y en el grupo infantil es donde más se nota.
             </p>
             <p>
               <Link to="/clase-gratis" className="btn btn--primary">Reservar clase de prueba</Link>
             </p>
           </div>
           <div className="bkids__side">
-            <img className="bkids__photo" src="img/dojo-tatami.jpg" alt="Clase infantil en el tatami del Dojo Sant Gervasi" loading="lazy" width="1030" height="494" />
+            <img className="bkids__photo" src="img/dojo-tatami.jpg" alt="Clase infantil de karate en el tatami del Dojo Sant Gervasi" loading="lazy" width="1030" height="494" />
             <Slot title="Fotos del grupo infantil de BJJ">
               <p>
                 La foto de arriba es de una clase infantil del Dojo, no del grupo de BJJ.
@@ -368,9 +371,9 @@ export default function Bjj() {
             <article>
               <h3>Los grados llevan su tiempo</h3>
               <p>
-                En BJJ el recorrido de adulto va de blanco a negro pasando por azul, morado
-                y marrón, y se mide en años, no en meses. Los menores tienen su propia
-                escala hasta los 16.
+                Los grados del BJJ son los mismos en todas partes: de blanco a negro,
+                pasando por azul, morado y marrón, y se miden en años, no en meses. Los
+                menores tienen su propia escala hasta los 16.
               </p>
             </article>
             <article>

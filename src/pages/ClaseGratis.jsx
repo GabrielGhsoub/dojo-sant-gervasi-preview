@@ -16,15 +16,17 @@ export default function ClaseGratis() {
           </p>
           <ul className="cg__points">
             <li><strong>No se paga nada</strong> para reservarla.</li>
-            <li><strong>Nada queda confirmado solo</strong>: lo revisa el dojo.</li>
+            <li><strong>Nada queda confirmado solo</strong>: lo revisa el Dojo.</li>
             {/* Was "el material lo ponemos nosotros", which their own /tarifas/
                 denies: "cada actividad requiere la compra de un equipo o material
                 específico". Replaced with something they do publish. */}
             <li>La <strong>matrícula de inscripción es gratuita</strong>.</li>
           </ul>
           <p className="cg__alt">
-            Si lo prefieres, llámanos al <a href={brand.phoneHref}>{brand.phone}</a> o
-            escribe a <a href={`mailto:${brand.email}`}>{brand.email}</a>.
+            Si lo prefieres, escríbenos por{' '}
+            <a href={brand.whatsappHref} target="_blank" rel="noreferrer">WhatsApp</a>,
+            llámanos al <a href={brand.phoneHref}>{brand.phone}</a> o escribe a{' '}
+            <a href={`mailto:${brand.email}`}>{brand.email}</a>.
           </p>
         </motion.div>
         <motion.div className="cg__widget" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .55, delay: .08 }}>

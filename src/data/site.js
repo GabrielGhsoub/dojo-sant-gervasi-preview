@@ -7,8 +7,11 @@ export const brand = {
   name: 'Dojo Sant Gervasi',
   claim: 'Artes marciales y defensa personal en Barcelona',
   /* Their words, not ours: "Llevamos más de 40 años impartiendo clases"
-     (/nuestros-valores/) and "+ 40 años de experiencia" (/equipo/). They publish
-     no founding year anywhere, so we do not print one. */
+     (/nuestros-valores/), "Más de 40 años de experiencia nos avalan" (/clases/) and
+     "+ 40 años de experiencia" (/equipo/). They publish no founding year anywhere,
+     so we do not print one. Kept here for the record and deliberately NOT rendered:
+     the only years figure on the page is Lluís's own "50 años" from the brief, and
+     two different numbers on one site would read as a mistake. */
   experience: 'más de 40 años',
   address: 'Carrer de Buscarons, 18',
   city: '08022 Sant Gervasi, Barcelona',
@@ -21,7 +24,9 @@ export const brand = {
      rendered page on 2026-09-08. */
   whatsapp: '+34 634 71 09 79',
   whatsappHref: 'https://wa.me/34634710979',
-  /* /tarifas/ sidebar, verbatim. */
+  /* Verbatim off the "Encuéntranos" block of their discipline pages, e.g.
+     /clases/brasilian-jiu-jitsu/. Their /tarifas/ sidebar splits the same hours
+     into "Mañanas" and "Tardes". */
   hours: 'De 9:00 a 13:30 y de 17:00 a 22:00',
   /* /nosotros/: "Somos una escuela de valores." */
   valuesClaim: 'Escuela de valores',
@@ -56,9 +61,11 @@ export const timetable = [
     ],
   },
   /* The open mat row is the one cell on this table that does NOT come from
-     /horarios/. Lluís gave the BJJ week by WhatsApp on 2026-09-08 and put the
-     Friday open mat at 16:30, an hour earlier than the published table. His
-     message is newer, so it wins here and on the BJJ page. */
+     /horarios/. Their published table puts OPEN MAT BJJ (+15) in the Friday
+     17:30 to 18:30 cell, next to Acondicionamiento Físico. Lluís gave the BJJ
+     week by WhatsApp on 2026-09-08 and put the Friday open mat at 16:30 to
+     17:30, an hour earlier. His message is newer, so it wins here and on the BJJ
+     page. Worth one line of confirmation from him before this goes live. */
   {
     time: '16:30 a 17:30',
     slots: [[], [], [], [], ['Open mat BJJ (+15)']],
@@ -130,19 +137,20 @@ export const avisos = [
 /* The discipline checklist from their own /contacto/ free-class form, with three
    deliberate changes: the "Acondiciomamiento" typo corrected, Muay Thai added
    (it is on their timetable and in their nav but missing from the form), and
-   their three children's rows merged into one tile, named with their own nav
-   wording "Clases de Judo, Karate y BJJ para niños". */
+   their three children's rows merged into one tile. Every name below is spelled
+   and capitalised as the /clases/ index and the main nav spell it, re-read
+   2026-09-08. */
 export const disciplines = [
   { key: 'judo', name: 'Judo', img: 'karate3-2-1.jpg' },
   { key: 'karate', name: 'Karate', img: 'KARATE.jpg' },
   { key: 'kickboxing', name: 'Kickboxing', img: 'kick2-2.jpg' },
   { key: 'kravmaga', name: 'Krav Maga', img: 'dojo-sant-gervasi-krav-maga.jpg' },
   { key: 'bjj', name: 'Brazilian Jiu Jitsu', img: 'Dojo-Sant-Gervasi-brasilian-jujitsu.jpg' },
-  { key: 'dpf', name: 'Defensa personal femenina', img: 'dojo-sant-gervasi-defensa-personal-femenina.jpg' },
-  { key: 'acond', name: 'Acondicionamiento físico', img: 'dojo-sant-gervasi-acondicionamiento-fisico.jpg' },
+  { key: 'dpf', name: 'Defensa Personal Femenina', img: 'dojo-sant-gervasi-defensa-personal-femenina.jpg' },
+  { key: 'acond', name: 'Acondicionamiento Físico', img: 'dojo-sant-gervasi-acondicionamiento-fisico.jpg' },
   { key: 'mma', name: 'MMA', img: 'MMA.jpg' },
   { key: 'muaythai', name: 'Muay Thai', img: 'two-boxers-fight-with-the-martial-arts-of-muay-tha-2023-11-27-04-56-34-utc.jpg' },
-  { key: 'infantil', name: 'Judo, karate y BJJ para niños', img: 'girl-in-kimono-practicing-karate-2023-11-27-05-04-38-utc.jpg' },
+  { key: 'infantil', name: 'Judo, Karate y BJJ para niños', img: 'girl-in-kimono-practicing-karate-2023-11-27-05-04-38-utc.jpg' },
 ];
 
 /* Map a timetable cell to the discipline keys it belongs under, so picking a
@@ -234,7 +242,7 @@ export const bjjTeacher = {
     'Así, quien llega al Brazilian Jiu Jitsu por primera vez se integra y progresa con seguridad, y quien ya lleva años sigue desarrollando su juego.',
   ],
   /* His closing line, kept because it is the one sentence that says what the
-     tatami se siente como. */
+     tatami actually feels like. */
   closing:
     'Por encima de todo, Steve busca crear en el tatami un ambiente de trabajo exigente, cercano y respetuoso, en el que cada alumno pueda aprender, ponerse a prueba y disfrutar del proceso de mejora.',
 };

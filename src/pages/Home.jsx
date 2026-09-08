@@ -181,8 +181,9 @@ export default function Home() {
               distintas disciplinas, el mismo tatami y la misma gente esperando en la puerta.
             </p>
             <p>
-              Las clases de niños y jóvenes van de 17:30 a 19:30, y las de adultos empiezan
-              justo después. Es el mismo Dojo, la misma tarde y los mismos profesores.
+              De lunes a jueves las clases de niños y jóvenes van de 17:30 a 19:30, y las de
+              adultos empiezan justo después. Es el mismo Dojo, la misma tarde y los mismos
+              profesores.
             </p>
             <ul className="fam__values">
               {brand.values.map((v) => <li key={v}>{v}</li>)}
@@ -198,8 +199,8 @@ export default function Home() {
           <p className="eyebrow">Por qué viene la gente</p>
           <h2>Hay más de una razón para cruzar la puerta</h2>
           <p className="lede">
-            Defenderte es una de ellas, y aquí lo aprendes. Pero no es la única, y desde
-            hace años no es ni la más común.
+            Defenderte es una de ellas, y aquí lo aprendes. Pero hay quien viene por el
+            deporte, quien viene por la técnica y quien viene por la gente.
           </p>
           <ul className="mot">
             {motives.map((m) => <li key={m}>{m}</li>)}
@@ -214,7 +215,7 @@ export default function Home() {
           <p className="eyebrow strip__eyebrow">El Dojo por dentro</p>
           <div className="strip__grid">
             <img src="img/dojo-tatami.jpg" alt="Un profesor corrige a dos niños durante la clase de karate" loading="lazy" width="1030" height="494" />
-            <img src="img/ninos-1.jpg" alt="Grupo infantil estirando al final de la clase" loading="lazy" width="1030" height="684" />
+            <img src="img/ninos-1.jpg" alt="Grupo infantil durante la clase en el tatami del Dojo Sant Gervasi" loading="lazy" width="1030" height="684" />
             <img src="img/karate-adultos.jpg" alt="Clase de karate de adultos haciendo técnica" loading="lazy" width="495" height="400" />
             <img src="img/grupo-karate.jpg" alt="Foto de grupo de alumnos del Dojo Sant Gervasi" loading="lazy" width="1030" height="578" />
           </div>
@@ -280,7 +281,7 @@ export default function Home() {
           <p className="eyebrow">Profesorado</p>
           <h2>Con quién vas a entrenar</h2>
           <p className="lede">
-            En artes marciales el profesor lo es casi todo. Estos son los del Dojo, con la
+            En artes marciales el profesor es fundamental. Estos son los del Dojo, con la
             disciplina que lleva cada uno.
           </p>
           <ul className="team">
@@ -334,7 +335,7 @@ export default function Home() {
       <section className="cta">
         <div className="wrap cta__in">
           <h2>La primera clase es gratis</h2>
-          <p>Eliges la actividad, eliges el día, y el dojo te confirma.</p>
+          <p>Eliges la actividad, eliges el día, y el Dojo te confirma.</p>
           <Link to="/clase-gratis" className="btn btn--primary">Reservar clase de prueba</Link>
         </div>
       </section>

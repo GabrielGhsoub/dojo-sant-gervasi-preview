@@ -107,7 +107,7 @@ export default function Booking() {
           <strong>{chosen?.name}</strong>, {slot?.day.toLowerCase()} de {slot?.time}.
         </p>
         <p className="bk__note">
-          El dojo la confirma por teléfono o por correo. Nada queda reservado hasta que
+          El Dojo la confirma por teléfono o por correo. Nada queda reservado hasta que
           ellos respondan, y no se ha cobrado nada.
         </p>
         <div className="bk__nav bk__nav--done">

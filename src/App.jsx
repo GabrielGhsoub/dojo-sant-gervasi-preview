@@ -76,8 +76,8 @@ function Chrome({ children }) {
             </p>
           </div>
           <p className="ft__demo">
-            Maqueta de demostración creada por Likwiid con los contenidos públicos del
-            dojo. No es la web oficial y no se envía ni se cobra nada.
+            Maqueta de demostración creada por Likwiid con los contenidos del Dojo y con lo
+            que nos habéis pasado. No es la web oficial y no se envía ni se cobra nada.
           </p>
         </div>
       </footer>
