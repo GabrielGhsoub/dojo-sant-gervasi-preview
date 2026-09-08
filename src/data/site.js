@@ -1,5 +1,5 @@
-/* Every fact here was read off dojosantgervasi.es on 2026-08-12.
-   Nothing is invented. The ONLY deliberate change from their live site is the
+/* Every fact here was read off dojosantgervasi.es on 2026-08-12 and re-read on
+   2026-09-08 (rendered pages, not raw HTML). Nothing is invented. The ONLY deliberate change from their live site is the
    spelling of "Acondicionamiento", which their own /horarios/ table gets right
    and their /contacto/ form gets wrong. */
 
@@ -16,9 +16,26 @@ export const brand = {
   phoneHref: 'tel:+34932112266',
   email: 'info@dojosantgervasi.es',
   crest: 'escudo-def.jpg',
+  /* The WhatsApp number their own joinchat widget dials on every page of
+     dojosantgervasi.es (data-settings telephone: 34634710979), read off the
+     rendered page on 2026-09-08. */
+  whatsapp: '+34 634 71 09 79',
+  whatsappHref: 'https://wa.me/34634710979',
+  /* /tarifas/ sidebar, verbatim. */
+  hours: 'De 9:00 a 13:30 y de 17:00 a 22:00',
+  /* /nosotros/: "Somos una escuela de valores." */
+  valuesClaim: 'Escuela de valores',
+  /* /nuestros-valores/, their four words. */
+  values: ['Esfuerzo', 'Disciplina', 'Respeto', 'Autocontrol'],
+  /* Lluis Escalona's brief of 2026-09-07, his wording for the home header.
+     Their site says "más de 40 años" (/equipo/, /nuestros-valores/) and
+     "Más de 45" (kids page); the 50 is his, from the brief. */
+  briefHeadline: 'Artes marciales en Sant Gervasi',
+  briefSub: '50 años formando personas dentro y fuera del tatami',
 };
 
-/* /horarios/, transcribed cell by cell. Their note above the table, verbatim:
+/* /horarios/, transcribed cell by cell, re-read on 2026-09-08: since August they
+   have added two Friday BJJ sessions (Open mat 17:30 and BJJ (+15) 18:30). Their note above the table, verbatim:
    "Los horarios de clase pueden cambiar. Por favor avisanos si vas a asistir
    para que podamos informarte si es necesario." That sentence is the whole
    reason this booking flow exists. */
@@ -29,7 +46,7 @@ export const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
 
 export const timetable = [
   {
-    time: '10:00 – 11:00',
+    time: '10:00 a 11:00',
     slots: [
       ['Judo adulto (+15)'],
       ['Kickboxing (+15)'],
@@ -38,8 +55,16 @@ export const timetable = [
       [],
     ],
   },
+  /* The open mat row is the one cell on this table that does NOT come from
+     /horarios/. Lluís gave the BJJ week by WhatsApp on 2026-09-08 and put the
+     Friday open mat at 16:30, an hour earlier than the published table. His
+     message is newer, so it wins here and on the BJJ page. */
   {
-    time: '17:30 – 18:30',
+    time: '16:30 a 17:30',
+    slots: [[], [], [], [], ['Open mat BJJ (+15)']],
+  },
+  {
+    time: '17:30 a 18:30',
     slots: [
       ['Karate alevín (5 a 10 años)', 'BJJ (8 a 15 años)'],
       ['Karate alevín B (5 a 10 años)', 'Judo alevín (5 a 10 años)'],
@@ -49,17 +74,17 @@ export const timetable = [
     ],
   },
   {
-    time: '18:30 – 19:30',
+    time: '18:30 a 19:30',
     slots: [
       ['Karate juvenil (11 a 15 años)'],
       ['Karate juvenil B (11 a 15 años)', 'Judo juvenil (11 a 15 años)'],
       ['Karate juvenil (11 a 15 años)'],
       ['Karate juvenil B (11 a 15 años)', 'Judo juvenil (11 a 15 años)'],
-      ['Kickboxing (+15)'],
+      ['Kickboxing (+15)', 'BJJ (+15)'],
     ],
   },
   {
-    time: '19:30 – 20:30',
+    time: '19:30 a 20:30',
     slots: [
       ['Krav Maga (+15)', 'Muay Thai'],
       ['Kickboxing (+15)', 'BJJ (+15)'],
@@ -69,7 +94,7 @@ export const timetable = [
     ],
   },
   {
-    time: '20:30 – 21:30',
+    time: '20:30 a 21:30',
     slots: [
       ['Karate (+15)'],
       ['MMA (+15)', 'Judo adulto (+15)'],
@@ -166,4 +191,68 @@ export function allSlots() {
     });
   });
   return out;
+}
+
+
+/* /nosotros/equipo/, the roster exactly as published. Nobody is added, nobody is
+   promoted: the grades and titles below are their own words. */
+export const teachers = [
+  { name: 'Lluis Escalona', role: 'Krav Maga' },
+  { name: 'Arnald Armentano', role: 'Judo alevín e infantil' },
+  { name: 'Lluis Escalona', role: 'Karate cadete, juvenil y adultos' },
+  { name: 'Carlos Perez', role: 'Karate alevín e infantil' },
+  { name: 'Pompeu Fabregas', role: 'Karate deportivo y competición' },
+  { name: 'Ben Petrequin', role: 'Judo adultos' },
+  /* /nosotros/equipo/ lists Víctor Aparicio under "Brazilian Jiu Jitsu y MMA".
+     On 2026-09-08 Lluís told us by WhatsApp that the BJJ profesor is Steve
+     Luzardo, so BJJ is listed under Steve and Víctor keeps MMA. If Víctor also
+     still teaches BJJ, this is the line to correct. */
+  { name: 'Víctor Aparicio', role: 'MMA' },
+  { name: 'Steve Luzardo', role: 'Brazilian Jiu Jitsu, cinturón negro' },
+  { name: 'Alex Usieto', role: 'Muay Thai' },
+];
+
+/* The BJJ instructor, as Lluís Escalona gave him to us by WhatsApp on
+   2026-09-08. Their site still names Víctor for BJJ; Lluís's message is newer
+   and specific, so this page follows it. The credential lines and the way of
+   teaching are his own words, shortened. He has no photo of Steve yet, so the
+   page shows a monogram tile rather than a stock face or a broken frame. */
+export const bjjTeacher = {
+  name: 'Steve Luzardo',
+  belt: 'Cinturón negro',
+  role: 'Profesor de Brazilian Jiu Jitsu',
+  initials: 'SL',
+  photo: null,
+  credentials: [
+    'Más de 15 años entrenando y enseñando Brazilian Jiu Jitsu',
+    'Profesor titulado de la filial de Cícero Costha',
+    'Alumno directo de Javier Feliubadaló, con quien sigue formándose',
+  ],
+  approach: [
+    'Cada alumno tiene su propio ritmo y su propio camino dentro del BJJ. Por eso sus clases combinan una enseñanza técnica y estructurada con un seguimiento cercano de la evolución de cada practicante, adaptando el entrenamiento a su nivel, su experiencia y sus características.',
+    'En sus sesiones se trabaja de forma progresiva la técnica, el control, las posiciones, las finalizaciones y la aplicación práctica del BJJ. La idea no es memorizar movimientos, sino entender por qué y cuándo se usa cada recurso.',
+    'Así, quien llega al Brazilian Jiu Jitsu por primera vez se integra y progresa con seguridad, y quien ya lleva años sigue desarrollando su juego.',
+  ],
+  /* His closing line, kept because it is the one sentence that says what the
+     tatami se siente como. */
+  closing:
+    'Por encima de todo, Steve busca crear en el tatami un ambiente de trabajo exigente, cercano y respetuoso, en el que cada alumno pueda aprender, ponerse a prueba y disfrutar del proceso de mejora.',
+};
+
+/* Their /clases/brasilian-jiu-jitsu/ page, in their own terms. "Duración 60
+   minutos" and the two age groups are printed there; the weekly sessions come
+   from /horarios/, which as of 2026-09-08 lists two more than the BJJ page does
+   (Friday open mat and Friday BJJ +15). We show the timetable and let their own
+   note about changes do the rest. */
+export const bjjFacts = {
+  duration: '60 minutos',
+  groups: [
+    { label: 'Niños y jóvenes', detail: 'entre los 8 y los 15 años' },
+    { label: 'Adultos', detail: 'a partir de 15 años' },
+  ],
+};
+
+/* Every BJJ line on the weekly table, in table order. */
+export function bjjSlots() {
+  return allSlots().filter((s) => s.disciplines.includes('bjj'));
 }

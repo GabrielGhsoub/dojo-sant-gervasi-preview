@@ -49,3 +49,66 @@
 .tar__avisos { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .4rem; }
 .tar__avisos li { font-size: .82rem; color: var(--muted); padding-left: 1.1rem; position: relative; }
 .tar__avisos li::before { content: '!'; position: absolute; left: .25rem; font-weight: 700; color: var(--red); }
+
+/* ------------------------------------------------- home, 2026-09-08 rewrite */
+/* His header, in his words. Their own site sets headings in caps, so we do the
+   same in CSS and leave the accessible text as written. */
+.hero__h1 { text-transform: uppercase; max-width: 18ch; }
+.hero__row { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem .9rem; padding: 0; margin: 1.6rem 0 0; }
+.hero__row li { color: rgba(255,255,255,.9); font-size: .92rem; font-weight: 600; letter-spacing: .01em; }
+.hero__row li + li::before { content: '·'; margin-right: .9rem; color: rgba(255,255,255,.45); }
+
+.ent__lede { margin: .9rem 0 2.2rem; }
+.ent { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+@media (max-width: 860px) { .ent { grid-template-columns: 1fr; } }
+.ent__card { padding: 1.6rem; }
+.ent__card h3 { font-size: 1.3rem; font-family: var(--display); margin-bottom: 1rem; }
+.ent__ages { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.ent__ages li { border-top: 1px solid var(--line); padding-top: 1rem; }
+.ent__ages li:first-child { border-top: 0; padding-top: 0; }
+.ent__ages strong { font-family: var(--display); font-size: 1.05rem; }
+.ent__ages em { font-style: normal; color: var(--red-dark); font-size: .82rem; font-weight: 600; margin-left: .5rem; }
+.ent__ages span { display: block; font-size: .92rem; color: var(--ink-2); margin-top: .3rem; }
+.ent__note { font-size: .92rem; color: var(--muted); margin-bottom: 1.1rem; }
+.ent__discs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.ent__discs a {
+  display: inline-block; text-decoration: none; font-size: .88rem; font-weight: 600;
+  border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; color: var(--ink-2);
+}
+.ent__discs a:hover { border-color: var(--ink); color: var(--ink); }
+
+.comb { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.4rem, 4vw, 3.2rem); align-items: start; }
+@media (max-width: 860px) { .comb { grid-template-columns: 1fr; } }
+.comb .lede { margin-top: .9rem; }
+.comb__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+.comb__list li { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.2rem; }
+.comb__list strong { display: block; font-family: var(--display); font-size: 1.05rem; margin-bottom: .35rem; }
+.comb__list span { font-size: .93rem; color: var(--ink-2); }
+
+.fam__in { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.6rem, 4vw, 3.2rem); align-items: center; }
+@media (max-width: 860px) { .fam__in { grid-template-columns: 1fr; } }
+.fam__copy .lede { margin: .9rem 0 1rem; }
+.fam__photo { border-radius: 14px; width: 100%; aspect-ratio: 16/10; object-fit: cover; box-shadow: var(--shadow-lg); }
+.fam__values { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.4rem 0 0; }
+.fam__values li { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: .4rem .85rem; }
+
+.mot { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; }
+.mot li { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; font-weight: 600; color: var(--ink-2); }
+
+.team { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+.team li { border-top: 2px solid var(--line); padding-top: .9rem; }
+.team strong { display: block; font-family: var(--display); font-size: 1.05rem; }
+.team span { font-size: .9rem; color: var(--muted); }
+.team__more { margin-top: 1.8rem; }
+.team__more a { display: inline-block; padding: .45rem 0; }
+
+/* The discipline tiles are links now, so the anchor has to fill the card or the
+   photo collapses and the caption loses its box. */
+.disc__item a { position: absolute; inset: 0; display: block; text-decoration: none; }
+
+.strip { padding: clamp(2rem, 5vw, 3.4rem) 0 0; }
+.strip__eyebrow { margin-bottom: 1.1rem; }
+.strip__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+.strip__grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; }
+@media (max-width: 700px) { .strip__grid { grid-template-columns: repeat(2, 1fr); } }
+.team__src { margin-top: .6rem; font-size: .86rem; color: var(--muted); max-width: 62ch; }

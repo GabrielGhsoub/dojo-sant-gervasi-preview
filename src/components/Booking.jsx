@@ -48,8 +48,13 @@ export default function Booking() {
   const [showErrors, setShowErrors] = useState(false)
   const [sent, setSent] = useState(false)
 
+  /* allSlots() walks the weekly table row by row, so the list came out ordered by
+     hour: the Friday 16:30 open mat before Monday. A visitor reads a week in day
+     order. */
   const slots = useMemo(
-    () => allSlots().filter((s) => s.disciplines.includes(discipline)),
+    () => allSlots()
+      .filter((s) => s.disciplines.includes(discipline))
+      .sort((a, b) => a.dayIndex - b.dayIndex || a.time.localeCompare(b.time)),
     [discipline],
   )
   const chosen = disciplines.find((d) => d.key === discipline)

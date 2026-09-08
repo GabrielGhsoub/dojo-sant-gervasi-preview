@@ -27,7 +27,12 @@ body {
   font-size: 16px;
   line-height: 1.6;
 }
-img { max-width: 100%; display: block; }
+/* The width/height attributes on every <img> reserve space before load, but the
+   HTML height attribute is a presentational hint that beats a CSS aspect-ratio
+   whenever the rule sets only width. Without this, a 1030x578 photo in a
+   16/10 card rendered 345 wide and 578 tall. Rules that really do want a fixed
+   height (.hero__bg, .disc__item img, the crest) are more specific and win. */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 
 h1, h2, h3 { font-family: var(--display); letter-spacing: -.02em; line-height: 1.08; margin: 0; }

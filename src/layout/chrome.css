@@ -45,3 +45,6 @@
   .hd__cta-long { display: none; }
   .hd__cta-short { display: inline; }
 }
+
+.ft__claim { font-family: var(--display); font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.55) !important; margin: .35rem 0 0 !important; }
+.ft__hours { color: rgba(255,255,255,.55); }

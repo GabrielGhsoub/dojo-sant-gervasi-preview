@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { NavLink, Route, Routes, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home.jsx'
+import Bjj from './pages/Bjj.jsx'
 import ClaseGratis from './pages/ClaseGratis.jsx'
 import { brand } from './data/site.js'
 import './layout/chrome.css'
@@ -17,8 +18,14 @@ function Chrome({ children }) {
      Must be 'instant': html has scroll-behavior:smooth, so a plain scrollTo
      animates from 4,000px while React swaps in a shorter page underneath, and
      the run gets clamped part way and stops at ~460px. */
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }) }, [pathname])
+  /* Under HashRouter the fragment is the route, so "/#horarios" cannot work as an
+     anchor. Links that mean "go home and land on that block" carry the target in
+     router state instead, and the reset has to stand aside for them. */
+  const { pathname, state } = useLocation()
+  useEffect(() => {
+    if (state?.scrollTo) return
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname, state])
 
   return (
     <>
@@ -35,11 +42,12 @@ function Chrome({ children }) {
             <img src="img/escudo-def.jpg" alt="" width="40" height="40" />
             <span>
               <strong>Dojo Sant Gervasi</strong>
-              <em>Barcelona, {brand.experience}</em>
+              <em>Sant Gervasi, Barcelona</em>
             </span>
           </Link>
           <nav className="hd__nav">
             <NavLink to="/" end>Inicio</NavLink>
+            <NavLink to="/bjj">BJJ</NavLink>
             <NavLink to="/clase-gratis">Clase gratis</NavLink>
             <a href={brand.phoneHref}>{brand.phone}</a>
           </nav>
@@ -56,10 +64,15 @@ function Chrome({ children }) {
         <div className="wrap ft__in">
           <div>
             <strong>{brand.name}</strong>
+            {/* "Somos una escuela de valores" is their own line, off /nosotros/.
+                Lluís wants it as a thread through the site, not a banner. */}
+            <p className="ft__claim">{brand.valuesClaim}</p>
             <p>
               {brand.address}<br />{brand.city}<br />
               <a href={brand.phoneHref}>{brand.phone}</a><br />
-              <a href={`mailto:${brand.email}`}>{brand.email}</a>
+              <a href={`mailto:${brand.email}`}>{brand.email}</a><br />
+              <a href={brand.whatsappHref} target="_blank" rel="noreferrer">WhatsApp {brand.whatsapp}</a><br />
+              <span className="ft__hours">{brand.hours}</span>
             </p>
           </div>
           <p className="ft__demo">
@@ -77,6 +90,7 @@ export default function App() {
     <Chrome>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/bjj" element={<Bjj />} />
         <Route path="/clase-gratis" element={<ClaseGratis />} />
         <Route path="*" element={<Home />} />
       </Routes>
